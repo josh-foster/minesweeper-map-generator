@@ -5,24 +5,50 @@
 
 body{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     height: 100vh;
     align-items: center;
     background-image: url("./img/background-image-main.jpg");
 }
-.game{
-    display: grid;
-    grid-template-columns: repeat(0, auto [col-start]);
-    width: 600px;
+
+.difficulty{
     
-    row-gap: 0px;
-    column-gap: 0px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.5rem;
+    margin-bottom: 20px ;
+    
+}
+
+.difficulty button{
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 50px;
+    height: 25px;
+    width: 100px;
     border:black 4px solid;
 }
 
-div{
+.difficulty button:focus{
+    outline: none;
+}
+
+.game{
+    height: 80vh;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(0, auto [col-start]);
+    
+    row-gap: 0px;
+    column-gap: 0px;
+    border:black 2px solid;
+}
+
+.game div{
     background-color:lightgray;
-    font-size: 2rem;
+    font-size: 200%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,7 +56,7 @@ div{
 }
 
 div i {
-    font-size: 2vh;
+    font-size: 80%;
 }
 
 .empty{
@@ -41,4 +67,15 @@ div i {
     -ms-user-select: none; 
     user-select: none;
     color: transparent;
+}
+
+@media only screen and (max-width:435px) {
+    .game{
+        width: 100vw;
+        height: 90vh;
+        margin: auto;
+    }
+    div i {
+        font-size: 50%;
+    }
 }

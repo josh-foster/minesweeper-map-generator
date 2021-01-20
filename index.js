@@ -1,6 +1,8 @@
-const mapGenerator = (rows, columns, mines) => { 
-    let grid = []
+let game = document.getElementById("game");
 
+const mapGenerator = (rows, columns, mines) => { 
+    game.innerHTML = "";
+    let grid = []
     for (j = 0 ; j <= (rows-1); j++) {
         let array = [];
         for (i = 0 ; i <= (columns-1); i++) {
@@ -99,7 +101,7 @@ const mapGenerator = (rows, columns, mines) => {
         if(grid[(rows-2)][0]!== "x") {grid[(rows-2)][0]+=1}
     };
 
-    const game = document.getElementById("game");
+    
     game.style.gridTemplateColumns = `repeat(${columns}, auto [col-start])`
     grid.forEach((array) => {
         array.forEach((el) => {
@@ -114,5 +116,18 @@ const mapGenerator = (rows, columns, mines) => {
     });
 }
 mapGenerator(15,15,30);
+
+const newMapGenerator = (difficulty) => {
+    if(difficulty==='easy'){
+        mapGenerator(15,15,15);
+    } else if (difficulty===`medium`){
+        mapGenerator(15,15,30);
+    } else if(difficulty==='hard') {
+        mapGenerator(15,15,60);
+    }
+}
+
+
+
 
 
